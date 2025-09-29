@@ -41,11 +41,18 @@
             btnAdd = new Button();
             btnUpdate = new Button();
             btnRemove = new Button();
-            btnGetById = new Button();
             cmbCategory = new ComboBox();
             nudStock = new NumericUpDown();
+            label6 = new Label();
+            lblTotalBook = new Label();
+            lblMostExpensiveBook = new Label();
+            label8 = new Label();
+            lblTotalDiffCategoryCount = new Label();
+            label7 = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -73,6 +80,7 @@
             button1.TabIndex = 2;
             button1.Text = "Listele";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
@@ -80,7 +88,7 @@
             dataGridView1.Location = new Point(318, 29);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(623, 450);
+            dataGridView1.Size = new Size(811, 405);
             dataGridView1.TabIndex = 3;
             // 
             // txtName
@@ -145,6 +153,7 @@
             btnAdd.TabIndex = 12;
             btnAdd.Text = "Ekle";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -154,6 +163,7 @@
             btnUpdate.TabIndex = 13;
             btnUpdate.Text = "Güncelle";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnRemove
             // 
@@ -163,15 +173,7 @@
             btnRemove.TabIndex = 14;
             btnRemove.Text = "Kaldır";
             btnRemove.UseVisualStyleBackColor = true;
-            // 
-            // btnGetById
-            // 
-            btnGetById.Location = new Point(137, 440);
-            btnGetById.Name = "btnGetById";
-            btnGetById.Size = new Size(163, 39);
-            btnGetById.TabIndex = 15;
-            btnGetById.Text = "Id'ye göre Getir";
-            btnGetById.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
             // 
             // cmbCategory
             // 
@@ -189,14 +191,92 @@
             nudStock.Size = new Size(163, 27);
             nudStock.TabIndex = 17;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(14, 30);
+            label6.Name = "label6";
+            label6.Size = new Size(280, 38);
+            label6.TabIndex = 18;
+            label6.Text = "Toplam Kitap Sayısı:";
+            // 
+            // lblTotalBook
+            // 
+            lblTotalBook.AutoSize = true;
+            lblTotalBook.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalBook.ForeColor = Color.Red;
+            lblTotalBook.Location = new Point(300, 30);
+            lblTotalBook.Name = "lblTotalBook";
+            lblTotalBook.Size = new Size(49, 38);
+            lblTotalBook.TabIndex = 19;
+            lblTotalBook.Text = "00";
+            // 
+            // lblMostExpensiveBook
+            // 
+            lblMostExpensiveBook.AutoSize = true;
+            lblMostExpensiveBook.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMostExpensiveBook.ForeColor = Color.Red;
+            lblMostExpensiveBook.Location = new Point(302, 92);
+            lblMostExpensiveBook.Name = "lblMostExpensiveBook";
+            lblMostExpensiveBook.Size = new Size(49, 38);
+            lblMostExpensiveBook.TabIndex = 21;
+            lblMostExpensiveBook.Text = "00";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(73, 92);
+            label8.Name = "label8";
+            label8.Size = new Size(221, 38);
+            label8.TabIndex = 20;
+            label8.Text = "En Pahalı Kitap:";
+            // 
+            // lblTotalDiffCategoryCount
+            // 
+            lblTotalDiffCategoryCount.AutoSize = true;
+            lblTotalDiffCategoryCount.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalDiffCategoryCount.ForeColor = Color.Red;
+            lblTotalDiffCategoryCount.Location = new Point(302, 146);
+            lblTotalDiffCategoryCount.Name = "lblTotalDiffCategoryCount";
+            lblTotalDiffCategoryCount.Size = new Size(49, 38);
+            lblTotalDiffCategoryCount.TabIndex = 23;
+            lblTotalDiffCategoryCount.Text = "00";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(23, 146);
+            label7.Name = "label7";
+            label7.Size = new Size(271, 38);
+            label7.TabIndex = 22;
+            label7.Text = "Kaç Farklı Kategori:";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.PaleTurquoise;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(lblTotalDiffCategoryCount);
+            panel1.Controls.Add(lblTotalBook);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(lblMostExpensiveBook);
+            panel1.Location = new Point(318, 449);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(811, 222);
+            panel1.TabIndex = 24;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(953, 518);
+            BackColor = Color.SkyBlue;
+            ClientSize = new Size(1141, 701);
+            Controls.Add(panel1);
             Controls.Add(nudStock);
             Controls.Add(cmbCategory);
-            Controls.Add(btnGetById);
             Controls.Add(btnRemove);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
@@ -212,8 +292,11 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Dapper ile Uygulama";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,8 +316,14 @@
         private Button btnAdd;
         private Button btnUpdate;
         private Button btnRemove;
-        private Button btnGetById;
         private ComboBox cmbCategory;
         private NumericUpDown nudStock;
+        private Label label6;
+        private Label lblTotalBook;
+        private Label lblMostExpensiveBook;
+        private Label label8;
+        private Label lblTotalDiffCategoryCount;
+        private Label label7;
+        private Panel panel1;
     }
 }
