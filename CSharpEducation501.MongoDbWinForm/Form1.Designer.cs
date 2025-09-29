@@ -45,6 +45,7 @@
             btnRemove = new Button();
             btnUpdate = new Button();
             dataGridView1 = new DataGridView();
+            btnGetById = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -167,6 +168,7 @@
             btnList.TabIndex = 12;
             btnList.Text = "Listele";
             btnList.UseVisualStyleBackColor = false;
+            btnList.Click += btnList_Click;
             // 
             // btnAdd
             // 
@@ -192,6 +194,7 @@
             btnRemove.TabIndex = 14;
             btnRemove.Text = "Sil";
             btnRemove.UseVisualStyleBackColor = false;
+            btnRemove.Click += btnRemove_Click;
             // 
             // btnUpdate
             // 
@@ -204,6 +207,7 @@
             btnUpdate.TabIndex = 15;
             btnUpdate.Text = "Güncelle";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // dataGridView1
             // 
@@ -212,15 +216,29 @@
             dataGridView1.Location = new Point(348, 28);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(780, 425);
+            dataGridView1.Size = new Size(780, 479);
             dataGridView1.TabIndex = 16;
+            // 
+            // btnGetById
+            // 
+            btnGetById.BackColor = Color.MidnightBlue;
+            btnGetById.FlatStyle = FlatStyle.Flat;
+            btnGetById.ForeColor = SystemColors.ButtonHighlight;
+            btnGetById.Location = new Point(158, 459);
+            btnGetById.Name = "btnGetById";
+            btnGetById.Size = new Size(184, 48);
+            btnGetById.TabIndex = 17;
+            btnGetById.Text = "Müşteri Getir";
+            btnGetById.UseVisualStyleBackColor = false;
+            btnGetById.Click += btnGetById_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1137, 470);
+            ClientSize = new Size(1137, 528);
+            Controls.Add(btnGetById);
             Controls.Add(dataGridView1);
             Controls.Add(btnUpdate);
             Controls.Add(btnRemove);
@@ -265,5 +283,6 @@
         private Button btnRemove;
         private Button btnUpdate;
         private DataGridView dataGridView1;
+        private Button btnGetById;
     }
 }
